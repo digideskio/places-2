@@ -1,14 +1,12 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 'use strict';
 
 var React = require('react-native');
 var {
   AppRegistry,
+  Image,
   StyleSheet,
   Text,
+  TextInput,
   View,
 } = React;
 
@@ -16,16 +14,23 @@ var Places = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
+        <TextInput
+          autoCapitalize="none"
+          autoCorrect={false}
+          placeholder="Search for a place..."
+          style={styles.searchBarInput}
+          onEndEditing={this.onSearchChange}
+        />
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to Places!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
+          Places is where you keep your lists of spots you want to visit.
         </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <Image
+          source={{uri : 'https://openmerchantaccount.com/img/map-places.png'}}
+          style={styles.customimg}
+        />
       </View>
     );
   }
@@ -33,20 +38,30 @@ var Places = React.createClass({
 
 var styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#FFFFFF',
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 30,
     textAlign: 'center',
-    margin: 10,
+    marginTop: 80,
   },
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
+    margin: 40,
+  },
+  customimg: {
+    width: 200,
+    height: 200,
+  },
+  searchBarInput: {
+    marginTop: 20,
+    padding: 5,
+    fontSize: 15,
+    height: 30,
+    backgroundColor: '#EAEAEA',
   },
 });
 
